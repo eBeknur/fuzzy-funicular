@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Mening Linklarim</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="bg-gray-100 min-h-screen p-8">
+  <h1 class="text-3xl font-bold mb-6">Mening Linklarim</h1>
+  <a href="{% url 'upload-link' %}" class="mb-6 inline-block bg-blue-600 text-white px-4 py-2 rounded">+ Yangi Link</a>
+  <div class="space-y-4">
+    {% for link in links %}
+      <div class="bg-white p-4 rounded shadow flex justify-between items-center">
+        <div>
+          <p class="font-semibold">{{ link.description }}</p>
+          <p class="text-sm text-gray-600">Views: {{ link.views }}</p>
+        </div>
+        <a href="{% url 'link-detail' link.url %}" class="text-blue-600 underline">Ko‘rish</a>
+      </div>
+    {% empty %}
+      <p>Hozircha linklaringiz yo‘q.</p>
+    {% endfor %}
+  </div>
+</body>
+</html>

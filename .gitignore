@@ -1,0 +1,10 @@
+venv
+./venv/
+./venv
+logs
+./logs
+./logs/
+db.sqlite3
+.idea
+./idea
+./idea/

@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="uz">
+<head>
+    <meta charset="UTF-8">
+    <title>Link Tafsilotlari</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="bg-gray-100 flex items-center justify-center min-h-screen">
+
+<div class="bg-white p-6 rounded-2xl shadow-lg w-full max-w-lg text-center">
+
+    {% if expired %}
+        <h2 class="text-2xl font-bold text-red-600 mb-4">Ushbu link muddati tugagan!</h2>
+        <a href="/" class="text-blue-600 underline">Bosh sahifaga qaytish</a>
+    {% else %}
+        <h2 class="text-xl font-semibold text-gray-800 mb-2">Fayl haqida:</h2>
+        <p class="mb-3 text-gray-600">{{ link.description }}</p>
+
+        <a href="{{ link.file.url }}" download
+           class="inline-block bg-blue-600 text-white px-4 py-2 rounded-lg hover:bg-blue-700">Faylni Yuklab Olish</a>
+
+        <p class="mt-4 text-sm text-gray-500">Yuklashlar soni: {{ link.views }}</p>
+
+        <a href="/" class="block mt-5 text-blue-600 underline">Bosh sahifaga qaytish</a>
+    {% endif %}
+
+</div>
+
+</body>
+</html>
